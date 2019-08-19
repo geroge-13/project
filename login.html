@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>塘桥镇</title>
+    <link rel="stylesheet" href="CSS/tangqiao.css">
+    <link rel="stylesheet" href="CSS/5s.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body onload="demo(),todaydate()">
+    <div id="web">
+
+
+        <div class="register">
+            <!-- <img src="img/bg.png" alt=""> -->
+            <div class="head">
+                <img src="img/bg(5).png" alt="">
+            </div>
+            <div class="back"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="location2"><img src="img/icon_location.png" alt=""><span>塘桥先锋</span></div>
+            <div class="box">
+                <div class="font1">嗨,您好</div>
+                <div class="font2">欢迎到访塘桥先锋</div>
+            </div>
+            <div class="visiting">来访登记</div>
+            <div class="viv">
+                <div class="name2">
+                    <input type="text" placeholder="您的真实姓名" class="name" style="color:#999999">
+                    <span>姓名*</span>
+                </div>
+                <div class="phone2">
+                    <input type="text" placeholder="手机号码" class="phone" style="color:#999999" id="phone" value="">
+                    <span>联系电话*</span>
+                </div>
+                <div class="unit2">
+                    <input type="text" placeholder="你所在的工作单位" class="unit" style="color:#999999">
+                    <span>来访单位</span>
+                </div>
+                <div class="leader2">
+                    <input type="text" placeholder="活动属性" class="leader" style="color:#999999">
+                    <span>活动主题</span>
+                </div>
+                <div class="sum2">
+                    <input type="text" placeholder="活动人数" class="sum" style="color:#999999">
+                    <span>人数</span>
+                </div>
+                <div class="surt" id="tijiao"><img src="img/btn_notarize.png" alt=""><span>登记确认</span></div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <script>
+        window.onresize = adjuest;
+        adjuest();
+
+        function adjuest() {
+
+            var register = document.querySelector(".register");
+
+            register.style.height = window.innerHeight + 'px';
+            register.style.height = window.innerHeight - 'px';
+        }
+    </script>
+    <script src="js/tangqiao.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

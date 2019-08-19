@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#web .index {
+  width: 100%;
+}
+#web .index img {
+  width: 100%;
+  height: 100%;
+}
+#web .index .logo {
+  width: 55%;
+  height: 157px;
+  position: absolute;
+  left: 21%;
+  top: 34%;
+}
+#web .index .logo img {
+  width: 100%;
+  height: 100%;
+}
+#web .index .bottom {
+  width: 100%;
+  height: 121px;
+  position: absolute;
+  left: 0;
+  bottom: 0%;
+}
+#web .index .bottom img {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>塘桥镇</title>
+    <link rel="stylesheet" href="CSS/tangqiao.css">
+    <link rel="stylesheet" href="CSS/5s.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Fs7gBkGDs9tMnUicrgwmBOibzhIAmXch"></script>
+</head>
+
+<body onload="demo(),todaydate()">
+    <div id="web">
+        <div class="main">
+            <div class="location"><img src="img/icon_location1.png" alt=""><span>塘桥先锋</span></div>
+            <div class="head">
+                <div class="close" hidden>x</div>
+                <img src="img/pic_1.png" alt="">
+                <div class="time">
+                    <div class="week"></div>
+                    <div class="today"></div>
+                    <div class="weather"><img src="img/icon_sun.png" alt=""></div>
+                    <div class="tian"></div>
+                </div>
+                <div class="position">
+                    <div id="allmap" style="width:500px;height: 500px" hidden>
+                    </div>
+                    <img src="img/icon_location2.png" alt="">
+                    <span>张家港 塘桥</span>
+                </div>
+            </div>
+
+            <div class="content">
+
+                <div class="row1">
+                    <div class="visitors"><img src="img/visit.png" alt="">
+
+                    </div>
+                    <div class="dynamic">
+                        <div class="pary"><img src="img/dynamic_icon.png" alt=""><span>党群动态</span>
+                            <div class="lin"></div>
+                        </div>
+                        <div class="photo">
+                            <ol>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ol>
+                            <div class="lunbo">
+                                <div class="gg">
+                                    <img src="img/dynamic_pic.png" alt="">
+                                </div>
+                                <!-- <div class="gg">
+                                    <img src="img/btn_map.png" alt="">
+                                </div>
+                                <div class="gg">
+                                    <img src="img/c1.png" alt="">
+                                </div> -->
+                            </div>
+
+                        </div>
+                        <div class="scrollContent" dir="rtl">
+                            <ul class="lisa">
+                            </ul>
+                        </div>
+                        <div class="serial">
+                            <!-- <div class="a">01</div>
+                            <div class="a">02</div>
+                            <div class="a">03</div> -->
+                        </div>
+                        <div class="link"></div>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="mien"><img src="index/UI_btn_ 1.png" alt="">
+                        <div class="red0"></div><span>风采集萃</span></div>
+                    <div class="list"><img src="img/list_bg.png" alt=""><span>三张清单</span>
+                        <div class="one">
+                            <p hidden>0</p><span>01</span>需求清单</div>
+                        <div class="twe">
+                            <p hidden>1</p><span>02</span>项目清单</div>
+                        <div class="three">
+                            <p hidden>2</p><span>03</span>资源清单</div>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="map"><img src="index/UI_btn_ 2.png" alt="">
+                        <div class="red"></div><span>"红堡"地图</span></div>
+                    <div class="studio"><img src="index/UI_btn_ 3.png" alt="">
+                        <div class="red2"></div><span>工作室</span></div>
+                    <div class="civilization"><img src="index/UI_btn_ 4.png" alt="">
+                        <div class="red3"></div><span>文明实践</span></div>
+                </div>
+                <div class="row4">
+                    <div class="theme"><img src="index/UI_btn_ 5.png" alt="">
+                        <div class="red4"></div><span>主题党日</span></div>
+                    <div class="education"><img src="index/UI_btn_ 6.png" alt="">
+                        <div class="red5"></div><span>誓词教育</span></div>
+                    <div class="play"><img src="index/UI_btn_ 7.png" alt="">
+                        <div class="red6"></div><span>课件点播</span></div>
+                </div>
+                <div class="row5">
+                    <div class="activity"><img src="index/UI_btn_ 1.png" alt="">
+                        <div class="red7"></div><span>活动预告</span></div>
+                    <div class="rect"><img src="index/UI_btn_ 9.png" alt="">
+                        <div class="red8"></div><span>指尖矩阵</span></div>
+                    <div class="suggest"><img src="index/UI_btn_ 10.png" alt="">
+                        <div class="red9"></div><span>建言献策</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="register" hidden>
+            <!-- <img src="img/bg.png" alt=""> -->
+            <div class="head">
+                <img src="img/bg(5).png" alt="">
+            </div>
+            <div class="back"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="location2"><img src="img/icon_location.png" alt=""><span>塘桥先锋</span></div>
+            <div class="box">
+                <div class="font1">嗨,您好</div>
+                <div class="font2">欢迎到访塘桥先锋</div>
+            </div>
+            <div class="visiting">来访登记</div>
+            <div class="viv">
+                <div class="name2">
+                    <input type="text" placeholder="您的真实姓名" class="name" style="color:#999999">
+                    <span>姓名*</span>
+                </div>
+                <div class="phone2">
+                    <input type="text" placeholder="手机号码" class="phone" style="color:#999999" id="phone" value="">
+                    <span>联系电话*</span>
+                </div>
+                <div class="unit2">
+                    <input type="text" placeholder="你所在的工作单位" class="unit" style="color:#999999">
+                    <span>来访单位</span>
+                </div>
+                <div class="leader2">
+                    <input type="text" placeholder="活动属性" class="leader" style="color:#999999">
+                    <span>活动主题</span>
+                </div>
+                <div class="sum2">
+                    <input type="text" placeholder="活动人数" class="sum" style="color:#999999">
+                    <span>人数</span>
+                </div>
+                <div class="surt" id="tijiao"><img src="img/btn_notarize.png" alt=""><span>登记确认</span></div>
+            </div>
+        </div>
+
+        <div class="party" hidden>
+            <div class="op"></div>
+            <div class="back2"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+        </div>
+
+        <div class="mien2" hidden>
+            <img src="img/head.png" alt="">
+            <div class="back3"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="title">风采集萃</div>
+            <div class="bigbox">
+                <div class="wrap"><img src="img/UI_btn.png" alt=""></div>
+                <div class="arrow">
+                    <div class="arrow1"><img src="img/UI_arrows_6.png" alt=""></div>
+                    <div class="arrow1"><img src="img/UI_arrows_2.png" alt=""></div>
+                    <div class="arrow1"><img src="img/UI_arrows_3.png" alt=""></div>
+                    <div class="arrow1"><img src="img/UI_arrows_4.png" alt=""></div>
+                    <div class="arrow1"><img src="img/UI_arrows_5.png" alt=""></div>
+                    <div class="arrow1"><img src="img/UI_arrows_3.png" alt=""></div>
+                </div>
+                <div class="arrow2">
+                    <div class="arrow3"><img src="img/UI_arrows_7.png" alt=""></div>
+                    <div class="arrow3"><img src="img/UI_arrows_8.png" alt=""></div>
+                    <div class="arrow3"><img src="img/UI_arrows_9.png" alt=""></div>
+                    <div class="arrow3"><img src="img/UI_arrows_10.png" alt=""></div>
+                    <div class="arrow3"><img src="img/UI_arrows_11.png" alt=""></div>
+                </div>
+                <ul class="left">
+                </ul>
+                <ul class="number">
+                    <li>01</li>
+                    <li>03</li>
+                    <li>05</li>
+                    <li>07</li>
+                    <li>09</li>
+                    <li>11</li>
+                </ul>
+                <ul class="number2">
+                    <li>02</li>
+                    <li>04</li>
+                    <li>06</li>
+                    <li>08</li>
+                    <li>10</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="mien3" hidden>
+            <img src="img/head.png" alt="">
+            <div class="back7"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="title2">党员先锋</div>
+            <ul class="member">
+            </ul>
+        </div>
+
+        <div class="map2" hidden>
+            <div class="op">
+                <div class="name"></div>
+            </div>
+            <div class="back4"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+        </div>
+
+        <div id="content2" hidden>
+            <div class="bili">
+                <div class="top">
+                    <img src="img/red.png" alt="">
+                    <div class="map-tit">党群动态</div>
+                    <div class="back5"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                </div>
+                <div class="bbb"></div>
+            </div>
+        </div>
+
+        <div class="sigle" hidden>
+            <img src="img/head.png" alt="">
+            <div class="back6"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="rect-tit">塘桥先锋</div>
+            <div class="tabbox">
+                <ul class="tab-tit">
+                    <li class="active">需求清单</li>
+                    <li>项目清单</li>
+                    <li>资源清单</li>
+                </ul>
+            </div>
+
+            <div class="matter">
+                <div class="active">
+                    <ul class="demand">
+                    </ul>
+                </div>
+                <div>
+                    <ul class="demand">
+                    </ul>
+                </div>
+                <div>
+                    <ul class="demand">
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="work">
+            <div class="work2" hidden>
+                <div class="back8"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="theme-tit">工作室</div>
+                <img src="img/head2.png" alt="">
+                <ul class="work-box">
+                    <li class="a0">
+                        <p class="work-f">书记工作室</p>
+                    </li>
+                    <li class="a1">
+                        <p class="work-f">两大表一委员会</p>
+                    </li>
+                    <li class="a2">
+                        <p class="work-f">劳模工作室</p>
+                    </li>
+                    <li class="a3">
+                        <p class="work-f">能人工作室</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="secretary" hidden>
+                <div class="back9"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="top">
+                    <div class="work-tit">工作室</div>
+                    <img src="img/head2.png" alt="">
+                </div>
+                <ul class="work-name">
+                    <li>
+                        <!-- <p class="work-f2">胡同社区</p> -->
+                    </li>
+                </ul>
+            </div>
+
+            <div class="article" hidden>
+                <div class="back24"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="shadow"></div>
+                <div class="top">
+                    <div class="rect-tit">塘桥先锋</div>
+                    <img src="img/head2.png" alt="">
+                </div>
+                <div class="sigle2-cnt">
+                </div>
+            </div>
+
+            <div class="map2">
+                <div class="map3" hidden>
+                    <img src="img/head2.png" alt="">
+                    <div class="tit3">"红堡"地图</div>
+                    <ul class="village">
+                        <li class="b0">
+                            <p class="f-tit">市镇类</p>
+                        </li>
+                        <li class="b1">
+                            <p class="f-tit">区域站点类</p>
+                        </li>
+                        <li class="b2">
+                            <p class="f-tit">网格类</p>
+                        </li>
+                        <li class="b3">
+                            <p class="f-tit">村居企业类</p>
+                        </li>
+                    </ul>
+                    <div class="back10"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                </div>
+
+                <div class="map4" hidden>
+                    <div class="top">
+                        <div class="tit2">村居企业类</div>
+                        <img src="img/head2.png" alt="">
+                        <div class="back11"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    </div>
+                    <ul class="tabbox2">
+                    </ul>
+
+                    <div class="qiye">
+                        <div class="active">
+                            <ul class="village2">
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="village2">
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="village2">
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="map5" hidden>
+                    <div class="top">
+                        <img src="img/head2.png" alt="">
+                        <div class="tit4">市镇类</div>
+                        <div class="back12"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    </div>
+                    <ul class="list-tit">
+                    </ul>
+                </div>
+                <div class="map6" hidden>
+                    <div class="back21"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    <div class="shadow"></div>
+                    <div class="top">
+                        <div class="rect-tit">村居企业类</div>
+                        <img src="img/head2.png" alt="">
+                    </div>
+                    <div class="map-cnt">
+
+                    </div>
+                </div>
+                <div class="map7" hidden>
+                    <div class="back29"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    <div class="shadow"></div>
+                    <div class="top">
+                        <div class="tit5">镇市类</div>
+                        <img src="img/head2.png" alt="">
+                    </div>
+                    <div class="map-cnt2">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture">
+                <div class="culture2" hidden>
+                    <div class="top">
+                        <div class="culture-tit">文明实践</div>
+                        <div class="back13"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/wenming.png" alt="">
+                    </div>
+                    <div class="clt-cnt">
+                        <table border="1"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme2">
+                <div class="theme3" hidden>
+                    <div class="top">
+                        <div class="theme-tit">主题党日</div>
+                        <div class="back14"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/theme.png" alt="">
+                    </div>
+                    <div class="theme-box">
+                        <ul class="theme-list">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theme4" hidden>
+                    <div class="back15"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    <div class="shadow"></div>
+                    <!-- <div class="top">
+                        <div class="theme-tit">主题党日</div>
+                        <img src="img/theme.png" alt="">
+                    </div> -->
+                    <div class="prev"><img src="img/UI_btn_back.png" alt=""></div>
+                    <div class="next"><img src="img/right.png" alt=""></div>
+                    <div class="pic">
+                        <div class="inner">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education2">
+                <div class="education3" hidden>
+                    <div class="top">
+                        <div class="education-tit">誓词教育</div>
+                        <div class="back16"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/ed-bg.png" alt="">
+                    </div>
+                    <div class="education-box">
+                        <span>01</span>
+                        <span>02</span>
+                        <ul class="education-tab">
+                            <li class="active">
+                                <p>入党誓词</p>
+                            </li>
+                            <li>
+                                <p>入党誓词仪式</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="education-aa">
+                        <div class="active">
+                            <!-- <p class="abc">1434354534343543433s四的哈杀杀杀的关于福特几乎是大红色的卡 阿莎开始的啊狂顶啊狂顶就48798761321315346</p> -->
+                        </div>
+                        <div>
+                            <!-- <p class="abc">14343huasdhas5346</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity2">
+                <div class="activity3" hidden>
+                    <div class="top">
+                        <div class="activity-tit">活动预告</div>
+                        <div class="back17"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/head.png" alt="">
+                    </div>
+                    <div class="pp"></div>
+                    <ul class="act-box">
+
+                    </ul>
+                </div>
+                <div class="activity4" hidden>
+                    <div class="back25"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    <div class="shadow"></div>
+                    <div class="top">
+                        <div class="rect-tit">活动预告</div>
+                        <img src="img/head.png" alt="">
+                    </div>
+                    <div class="act-cnt">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="rect2">
+                <div class="rect3" hidden>
+                    <div class="top">
+                        <div class="rect-tit">指尖矩阵</div>
+                        <div class="back18"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/rect.png" alt="">
+                    </div>
+                    <ul class="rect-box">
+
+                    </ul>
+                </div>
+                <div class="rect4" hidden>
+                    <div class="back19"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                    <div class="shadow"></div>
+                    <div class="top">
+                        <div class="rect-tit">指尖矩阵</div>
+                        <img src="img/rect.png" alt="">
+                    </div>
+                    <div class="rect-code">
+                        <div class="code0"><img src="" alt=""></div>
+                        <div class="code1"><img src="" alt=""></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="play2">
+                <div class="play3" hidden>
+                    <div class="top">
+                        <div class="play-tit">课件点播</div>
+                        <div class="back20"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                        <img src="img/video.png" alt="">
+                    </div>
+                    <ul class="vi">
+                        <li>
+                            <video id="wu" controls="controls" poster="img/UI_logo.png"></video>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sigle2" hidden>
+                <div class="back23"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="shadow"></div>
+                <div class="top">
+                    <div class="rect-tit">塘桥先锋</div>
+                    <img src="img/head.png" alt="">
+                </div>
+                <div class="sigle-cnt">
+                </div>
+            </div>
+
+            <div class="mien4" hidden>
+                <div class="back26"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="shadow"></div>
+                <div class="top">
+                    <div class="rect-tit">风采集萃</div>
+                    <img src="img/head.png" alt="">
+                </div>
+                <div class="mien-cnt">
+                    <div class="mim">
+                        <img src="" alt="">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="index">
+                <img src="img/bg(4)(1).png" alt="">
+                <div class="logo"><img src="img/logo1.png" alt=""></div>
+                <div class="bottom">
+                    <img src="img/bg1.png" alt="">
+                </div>
+            </div> -->
+
+            <div class="suggest2" hidden>
+                <img src="img/sbg.png" alt="">
+                <div class="back27"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+                <div class="location2"><span>建言献策</span></div>
+                <div class="visiting2">请给我们留言</div>
+                <div class="sug">
+                    <div class="name2">
+                        <input type="text" placeholder="您的真实姓名" class="name3" style="color:#999999">
+                        <span>姓名</span>
+                    </div>
+                    <div class="email2">
+                        <input type="text" placeholder="电子邮箱" class="email" style="color:#999999" id="mail" value="">
+                        <span>邮箱</span>
+                    </div>
+                    <div class="phone2">
+                        <input type="text" placeholder="手机号码" class="phone3" style="color:#999999">
+                        <span>电话</span>
+                    </div>
+                    <div class="unit2">
+                        <input type="text" placeholder="你所在的工作单位" class="unit3" style="color:#999999">
+                        <span>来访单位</span>
+                    </div>
+                    <div class="text2">
+                        <span>描述</span>
+                        <textarea cols="10" rows="3" class="content3" maxlength="100">  </textarea><br>
+                        <div class="yy">0/100</div>
+                    </div>
+                    <div class="surt2" id="tijiao2" onclick="checkEmail(document.getElementById('mail').value);"><span>提交确认</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        function demo() {
+            var d = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "星期日";
+            weekday[1] = "星期一";
+            weekday[2] = "星期二";
+            weekday[3] = "星期三";
+            weekday[4] = "星期四";
+            weekday[5] = "星期五";
+            weekday[6] = "星期六";
+            var x = document.querySelector(".week");
+            x.innerHTML = weekday[d.getDay()]
+        }
+
+        function todaydate() {
+            var d = new Date();
+            var d2 = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+            var dd = document.querySelector(".today");
+            dd.innerHTML = d2
+        }
+
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(120.649691, 31.823099);
+        map.centerAndZoom(point, 15);
+        var marker = new BMap.Marker(point); // 创建标注
+        map.addOverlay(marker); // 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+        window.onresize = adjuest;
+        adjuest();
+
+        function adjuest() {
+            var label = document.querySelector(".theme4");
+            var web = document.querySelector(".rect4");
+            var register = document.querySelector(".register");
+            var suggest2 = document.querySelector(".suggest2");
+
+            suggest2.style.height = window.innerHeight + 'px';
+            suggest2.style.height = window.innerHeight - 'px';
+            register.style.height = window.innerHeight + 'px';
+            register.style.height = window.innerHeight - 'px';
+            web.style.height = window.innerHeight + 'px';
+            web.style.height = window.innerHeight - 'px';
+            label.style.height = window.innerHeight + 'px';
+            label.style.height = window.innerHeight - 'px';
+        }
+        var l = document.querySelector('.serial')
+        var r = document.querySelector('.scrollContent')
+        l.addEventListener('scroll', function() {
+            r.scrollTop = l.scrollTop
+        })
+        r.addEventListener('scroll', function() {
+            l.scrollTop = r.scrollTop
+        })
+    </script>
+    <script src="js/tangqiao.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <!-- <ul id="tabItems">
+</ul>
+<div id="content">
+
+</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+
+    $(window).load(function() {
+        $(".content>div").hide();
+    });
+    var str='';
+    var arr=[];
+        $.get('http://139.159.214.233:7778/api/dangjian',function (data) {
+            for (var i=0;i<data.length;i++)
+            {
+                if (i==0){
+                    str+= "<li class='active' value="+i+">"+data[i].title+"</li>";
+                }else {
+                    str+= "<li value="+i+">"+data[i].title+"</li>";
+                }
+                arr.push(data[i].content);
+            }
+            document.getElementById("tabItems").innerHTML=str;
+        });
+        $("#tabItems").on('click','li', function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var index = $(this).index();
+            var word='';
+            word+="<div class='cc' style='background: rgba(50,50,50,0.5);'>"+arr[index]+"</div>";
+            document.getElementById("content").innerHTML=word;
+            $(".content>div").eq(index).show().siblings().hide();
+        });
+    }); -->
+
+
+    <script>
+        function checkEmail(str) {
+            var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+            if (re.test(str)) {
+                alert("ok");
+            } else {
+                alert("nope");
+            }
+        }
+    </script>
+    Email:<input type="text" id="mail" value="" />
+    <input type="button" value="check" onclick="checkEmail(document.getElementById('mail').value);" />
+
+    </script>
+
+</html>

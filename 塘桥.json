@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "2edf99e4-0c3e-4f7c-9723-a2f7519bb4ff",
+		"name": "塘桥line",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "微信注册",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "123",
+							"description": "姓名",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "13213244252",
+							"description": "联系电话",
+							"type": "text"
+						},
+						{
+							"key": "unit\n",
+							"value": "231",
+							"description": "来访单位",
+							"type": "text"
+						},
+						{
+							"key": "leader",
+							"value": "test",
+							"description": "带队人员",
+							"type": "text"
+						},
+						{
+							"key": "sum",
+							"value": "123",
+							"description": "来访人数",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/members/create",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"members",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "注册人数",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/members",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "党建文章",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/dangjian",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"dangjian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "风采集萃",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/fengcai",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"fengcai"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "红堡地图",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/hongbao",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"hongbao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "主题党日",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/branches",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"branches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "课件点播",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/videos",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "活动预告",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/huodong",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"huodong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "指尖矩阵",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/zhijian",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"zhijian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "需求清单",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/san/xuqiu",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"san",
+						"xuqiu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "项目清单",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/san/xiangmu",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"san",
+						"xiangmu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "资源清单",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://139.159.214.233:7778/api/san/ziyuan",
+					"protocol": "http",
+					"host": [
+						"139",
+						"159",
+						"214",
+						"233"
+					],
+					"port": "7778",
+					"path": [
+						"api",
+						"san",
+						"ziyuan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "天气接口",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cityid",
+							"value": "101191001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://www.tianqiapi.com/api/?version=v6&cityid=101191001",
+					"protocol": "https",
+					"host": [
+						"www",
+						"tianqiapi",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "v6"
+						},
+						{
+							"key": "cityid",
+							"value": "101191001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

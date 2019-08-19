@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>塘桥镇</title>
+    <link rel="stylesheet" href="CSS/tangqiao.css">
+    <link rel="stylesheet" href="CSS/5s.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Fs7gBkGDs9tMnUicrgwmBOibzhIAmXch"></script>
+</head>
+
+<body onload="demo(),todaydate()">
+    <div id="web">
+        <div class="suggest2">
+            <img src="img/sbg.png" alt="">
+            <div class="back27"><img src="img/btn_back.png" alt=""><span>返回</span></div>
+            <div class="location2"><span>建言献策</span></div>
+            <div class="visiting2">请给我们留言</div>
+            <div class="sug">
+                <div class="name2">
+                    <input type="text" placeholder="您的真实姓名" class="name3" style="color:#999999">
+                    <span>姓名</span>
+                </div>
+                <div class="email2">
+                    <input type="text" placeholder="电子邮箱" class="email" style="color:#999999" id="mail" value="">
+                    <span>邮箱</span>
+                </div>
+                <div class="phone2">
+                    <input type="text" placeholder="手机号码" class="phone3" style="color:#999999">
+                    <span>电话</span>
+                </div>
+                <div class="unit2">
+                    <input type="text" placeholder="你所在的工作单位" class="unit3" style="color:#999999">
+                    <span>来访单位</span>
+                </div>
+                <div class="text2">
+                    <span>描述</span>
+                    <textarea cols="10" rows="3" class="content3" maxlength="100">  </textarea><br>
+                    <div class="yy">0/100</div>
+                </div>
+                <div class="surt2" id="tijiao2" onclick="checkEmail(document.getElementById('mail').value);"><span>提交确认</span></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <script>
+        window.onresize = adjuest;
+        adjuest();
+
+        function adjuest() {
+            var suggest2 = document.querySelector(".suggest2");
+
+            suggest2.style.height = window.innerHeight + 'px';
+            suggest2.style.height = window.innerHeight - 'px';
+        }
+    </script>
+    <script src="js/tangqiao.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

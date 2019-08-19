@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #content img {
+        width: 500px;
+        height: 500px;
+    }
+    
+    #content div {
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    #now {
+        position: fixed;
+        background: grey;
+    }
+</style>
+
+<body>
+    <!--<div id="now" style="width: 40px;height: 40px"></div>-->
+    <div id="branches" style="width: 40px;height: 40px">主题党日</div>
+    <div id="fengcai" style="padding-left:50px;width: 40px;height: 40px">风采集萃</div>
+    <div id="gongzuoshi" style="padding-top:50px;width: 40px;height: 40px">工作室</div>
+    <div id="san" style="padding-left:50px;width: 40px;height: 40px">三张清单</div>
+    <div id="hongbao" style="padding-top:50px;width: 40px;height: 40px">红堡地图</div>
+    <div id="hongcun" style="padding-left:50px;width: 40px;height: 40px">村居企业类</div>
+    <div id="wenming" style="padding-top:50px;width: 40px;height: 40px">文明实践</div>
+    <div id="dangjian" style="padding-left:50px;width: 40px;height: 40px">党群动态</div>
+    <div id="zhijian" style="padding-top:50px;width: 40px;height: 40px">指尖矩阵</div>
+    <div id="pop" hidden>
+        <ul id="list" hidden>
+        </ul>
+        <ul id="people" hidden>
+        </ul>
+        <div id="banner" hidden>
+        </div>
+        <div id="content" hidden>
+        </div>
+    </div>
+
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+    $(function() {
+        var Arr = [];
+
+        $("#branches").click(function() { //主题党日
+            Arr = [];
+            choseEr('branches');
+        });
+        $("#gongzuoshi").click(function() { //工作室
+            Arr = [];
+            choseSan('gongzuoshi');
+
+        });
+        $("#fengcai").click(function() { //风采集萃
+            Arr = [];
+            choseSan('fengcai');
+        });
+        $("#san").click(function() { //三张清单
+            Arr = [];
+            choseSan('san');
+        });
+        $("#hongbao").click(function() { //红堡地图（非村居企业类）
+            Arr = [];
+            choseSan('hongbao');
+        });
+        $("#hongcun").click(function() { //红堡村居
+            Arr = [];
+            choseSan('hongcun');
+        });
+        $("#wenming").click(function() { //文明实践
+            Arr = [];
+            choseOne('wenming');
+
+        });
+        $("#dangjian").click(function() { //党群动态
+            Arr = [];
+            getDj('dangjian');
+        });
+        $("#zhijian").click(function() { //指尖矩阵
+            Arr = [];
+            getZj('zhijian');
+        });
+        //将三级页面封装为一个方法
+        function choseSan(type) {
+            $("#people").off('click', "li");
+            $("#pop").show();
+            $("#list").hide();
+            $("#people").hide();
+            $("#content").hide();
+            var str = '';
+            var er = '';
+            $.get('http://139.159.214.233:7778/api/' + type, function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += "<li value=" + i + ">" + data[i].name + "</li>";
+                    Arr.push(data[i].message);
+                }
+                document.getElementById("list").innerHTML = str;
+                $("#list").show();
+            });
+            $("#list").on('click', 'li', function() {
+                er = $(this).index();
+                var name = '';
+                for (var j = 0; j < Arr[er].length; j++) {
+                    name += "<li class='san' style='background: rgba(50,50,50,0.5);'>" + Arr[er][j].title + "</li>";
+                }
+                document.getElementById("people").innerHTML = name;
+                $("#people").show();
+                $("#content").hide();
+            });
+            $("#people").on('click', 'li', function() {
+                var san = $(this).index();
+                var word = '';
+                word += "<div class='sanpop' style='background: rgba(50,50,50,0.5);'>" + Arr[er][san].content + "</div>";
+                document.getElementById("content").innerHTML = word;
+                $("#content").show();
+            });
+        }
+        //将二级页面封装为一个方法
+        function choseEr(type) {
+            $("#people").off('click', "li");
+            $("#pop").show();
+            $("#list").hide();
+            $("#people").hide();
+            $("#banner").hide();
+            $("#content").hide();
+            var str = '';
+            var er = '';
+            $.get('http://139.159.214.233:7778/api/' + type, function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += "<li value=" + i + ">" + data[i].name + "</li>";
+                    Arr.push(data[i].message);
+                }
+                document.getElementById("people").innerHTML = str;
+                $("#people").show();
+            });
+            $("#people").on('click', 'li', function() {
+                er = $(this).index();
+                var name = '';
+                for (var j = 0; j < Arr[er].length; j++) {
+                    name += "<li class='er' style='background: rgba(50,50,50,0.5);'>" + Arr[er][j].title + Arr[er][j].content + "</li>";
+                }
+                document.getElementById("content").innerHTML = name;
+                $("#content").show();
+            });
+        }
+        //将一级页面封装为一个方法
+        function choseOne(type) {
+            $("#people").off('click', "li");
+            $("#pop").show();
+            $("#list").hide();
+            $("#people").hide();
+            $("#banner").hide();
+            $("#content").hide();
+            var str = '';
+            var er = '';
+            $.get('http://139.159.214.233:7778/api/' + type, function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += "<li value=" + i + ">" + data[i].title + "</li>";
+                    Arr.push(data[i].content);
+                }
+                document.getElementById("people").innerHTML = str;
+                $("#list").hide();
+                $("#people").show();
+            });
+            $("#people").on('click', 'li', function() {
+                er = $(this).index();
+                var name = '';
+                name = "<div class='er' style='background: rgba(50,50,50,0.5);'>" + Arr[er] + "</div>";
+                document.getElementById("content").innerHTML = name;
+                $("#content").show();
+            });
+        }
+        //党群动态
+        function getDj(type) {
+            $("#people").off('click', "li");
+            $("#pop").show();
+            $("#list").hide();
+            $("#people").hide();
+            $("#banner").hide();
+            $("#content").hide();
+            var str = '';
+            var er = '';
+            var img = [];
+            $.get('http://139.159.214.233:7778/api/' + type, function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += "<li value=" + i + ">" + data[i].title + "</li>";
+                    Arr.push(data[i].content);
+                    img.push(data[i].img);
+                }
+                document.getElementById("people").innerHTML = str;
+                $("#list").hide();
+                $("#people").show();
+            });
+            $("#people").on('click', 'li', function() {
+                er = $(this).index();
+                var name = '';
+                var banner = '';
+                for (var j = 0; j < img[er].length; j++) {
+                    banner += "<div class='er' style='background: rgba(50,50,50,0.5);'>" + img[er][j] + "</div>";
+                }
+                document.getElementById("banner").innerHTML = banner;
+                $("#banner").show();
+                name = "<div class='er' style='background: rgba(50,50,50,0.5);'>" + Arr[er] + "</div>";
+                document.getElementById("content").innerHTML = name;
+                $("#content").show();
+            });
+        }
+        //指尖矩阵
+        function getZj(type) {
+            $("#people").off('click', "li");
+            $("#pop").show();
+            $("#list").hide();
+            $("#people").hide();
+            $("#banner").hide();
+            $("#content").hide();
+            var str = '';
+            var er = '';
+            var logo = [];
+            var erwei = [];
+            $.get('http://139.159.214.233:7778/api/' + type, function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += "<li value=" + i + ">" + data[i].title + "</li>";
+                    logo.push(data[i].logo);
+                    erwei.push(data[i].er);
+                }
+                document.getElementById("people").innerHTML = str;
+                $("#list").hide();
+                $("#people").show();
+            });
+            $("#people").on('click', 'li', function() {
+                er = $(this).index();
+                var name = '';
+                name = "<div class='er' style='background: rgba(50,50,50,0.5);'>" + logo[er] + erwei[er] + "</div>";
+                document.getElementById("content").innerHTML = name;
+                $("#content").show();
+            });
+        }
+    });
+</script>
+
+</html>
